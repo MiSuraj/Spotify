@@ -12,4 +12,6 @@ export class ArtistComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }
+
