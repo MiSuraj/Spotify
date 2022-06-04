@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import { AddArtistComponent } from '../add-artist/add-artist.component';
 
 @Component({
   selector: 'app-add-song',
@@ -9,12 +10,14 @@ import { Router } from '@angular/router';
 })
 export class AddSongComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-  navigate(){
-    this.router.navigate(['addArtist'])
+  openDialog(){
+    alert("hhgvhg");
+    const dialogRef = this.dialog.open(AddArtistComponent);
+
   }
   toppings = new FormControl('');
 

@@ -12,4 +12,8 @@ export class AddArtistComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submit(){
+    alert("submit clicked")
+  }
+
 }
