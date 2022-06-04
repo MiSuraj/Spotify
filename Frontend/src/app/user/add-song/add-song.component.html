@@ -1,31 +1,31 @@
 <h4 style="text-align:center ;">Add a new Song</h4>
 <div style="width: 50%;margin-left:25%;">
-    <form>
+    <form (ngSubmit)="submit()">
         <!-- Name input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="form4Example1">Song Name</label>
-          <input type="text" id="form4Example1" class="form-control" />
+          <input type="text" id="form4Example1" class="form-control" placeholder="Enter Here"/>
           
         </div>
       
         <!-- Email input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="form4Example2">Date of Release</label>
-          <input type="date" id="form4Example2" class="form-control" />
+          <input type="date" id="form4Example2"[(ngModel)]="date" name="date" class="form-control" />
           
         </div>
       
         <!-- Message input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="form4Example3">ArtWork</label>
-            <input type="file" id="form4Example2" class="form-control" />
+            <input type="url" id="form4Example2" [(ngModel)]="song.coverImgUrl" placeholder="Please Paste Image URL Here" name="coverImgUrl" class="form-control" />
         </div>
         <label class="form-label" for="form4Example3">Artist</label>
         <div style="display:flex;">
            
         <div>
-           <select class="selectpicker" name="" id=""   multiple>
-               <option selected disabled>Ctrl+Right CLick</option>
+           <select class="selectpicker" name="" id="select-meal-type" multiple="multiple">
+               <option selected disabled>Ctrl+Click(MultiSelect)</option>
                <option value="">None</option>
                <option value="1">One</option>
                <option value="2">two</option>
@@ -52,10 +52,10 @@
 
       
         <!-- Submit button -->
-        <button type="submit" class="btn btn-dark btn-block mb-4">Save</button>
+        <button type="submit"  class="btn btn-dark btn-block mb-4">Save</button>
       </form>
 
 </div>
-
+{{song|json}}
 
 
