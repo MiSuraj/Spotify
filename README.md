@@ -39,11 +39,11 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 
 
 
-- Open a Java IDE or any Editor(Supports java) the go to the file
+- Open a Java IDE or any Editor(Supports java) the go to the file and run it
 
   ```Shell
       cd /Backend/src/main/java/com/example/spotify
-      You will find the file name "SpotifyApplication.java"
+      You will find the file name "SpotifyApplication.java" run it
       Server will start at port localhost:8083
       Note:Maven is Important make sure you have it.
 
