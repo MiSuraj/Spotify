@@ -8,18 +8,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Artist Name</th>
-          <td>05/03/2000</td>
+        <tr *ngFor="let c of artistList">
+          <th scope="row">{{c.name}}</th>
+          <td>{{c.dob}}</td>
           <td>Otto</td>
   
         </tr>
-        <tr>
-            <th scope="row">Artist Name</th>
-            <td>05/03/2000</td>
-            <td>Otto</td>
-    
-          </tr>
+
 
       </tbody>
   </table>

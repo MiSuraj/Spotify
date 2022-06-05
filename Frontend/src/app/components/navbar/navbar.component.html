@@ -8,7 +8,9 @@
       <div class="navbar-nav" >
         <a class="nav-item nav-link active" routerLink="song" >Home <span class="sr-only">(current)</span></a>
   
-        <a class="nav-item nav-link" routerLink="login" >Login</a>
+        <a class="nav-item nav-link" routerLink="login" *ngIf="!isLoggedIn">Login</a>
+        <a class="nav-item nav-link" routerLink="login"     (click)="logout()"
+        *ngIf="isLoggedIn">Logout</a>
         <a class="nav-item nav-link"routerLink="signUp">SignUp</a>
 
       </div>

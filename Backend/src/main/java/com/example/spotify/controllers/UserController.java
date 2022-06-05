@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -18,7 +19,7 @@ public class UserController {
 //    private LoginKeyService loginKeyService;
 
     @PostMapping("/signUp")
-    public String addUser(@RequestBody User user) throws Exception {
+    public User addUser(@RequestBody User user) throws Exception {
 
         String message="";
         User user1=null;
@@ -35,7 +36,7 @@ public class UserController {
 
         }
 
-        return message;
+        return user1;
 
     }
 
@@ -50,6 +51,21 @@ public class UserController {
             return loginKey;
         }
         return "Login Failed";
+
+    }
+
+    @GetMapping("/getUser/{email}/{pass}")
+    public User getU(@PathVariable("email") String email,@PathVariable("pass") String password) throws Exception {
+        String loginKey;
+        User user=userService.getUserEmail(email);
+        if(user.getPassword().equals(password)){
+            loginKey=generateLoginKey();
+            user.setLoginKey(loginKey);
+            userService.createUser(user);
+            return user;
+        }
+        return null;
+
 
     }
 

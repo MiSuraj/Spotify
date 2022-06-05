@@ -24,10 +24,11 @@ public class SongController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/add/{email}")
-    public String addSong(@RequestBody SongDTO songDTO,@RequestParam("key") String loginKey,@PathVariable("email") String email){
+    @PostMapping("/add")
+    public void addSong(@RequestBody SongDTO songDTO){
        String message="";
-        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())) {
+//       ,@RequestParam("key") String loginKey,@PathVariable("email") String email
+//        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())) {
 
 
             try {
@@ -51,21 +52,21 @@ public class SongController {
             } catch (Exception e) {
                 message = "Song Not Added, Server Error " + e.getMessage();
             }
-        }
-        else{
-            System.out.println("Wrong Email Or Password");
-            message="Wrong Email Or Password";
-        }
-        return message;
+//        }
+//        else{
+//            System.out.println("Wrong Email Or Password");
+//            message="Wrong Email Or Password";
+//        }
 
 
 
 
     }
 
-    @GetMapping("/getAll/{email}")
-    public List<Songs> getAllSong(@RequestParam("key") String loginKey,@PathVariable("email") String email){
-        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())) {
+    @GetMapping("/getAll")
+    public List<Songs> getAllSong(){
+//        @RequestParam("key") String loginKey,@PathVariable("email") String email
+//        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())) {
             try {
 
 
@@ -76,7 +77,7 @@ public class SongController {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        }
+       // }
 
         return null;
 

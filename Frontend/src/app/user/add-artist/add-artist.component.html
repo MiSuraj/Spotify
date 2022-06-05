@@ -1,24 +1,24 @@
 
 <h4 style="text-align:center ;">Add Artist</h4>
 <div style="width: 50%;margin-left:25%;">
-    <form>
+    <form (ngSubmit)="submit()">
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <label class="form-label" for="form4Example1">Artist Name</label>
-          <input type="text" id="form4Example1" class="form-control" />
+            <label class="form-label" for="form4Example1" >Artist Name</label>
+          <input type="text" id="form4Example1" [(ngModel)]="artist.name" name="name" class="form-control" />
           
         </div>
       
         <!-- DOB input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="form4Example2">Date of Birth</label>
-          <input type="date" id="form4Example2" class="form-control" />
+          <input type="date" id="form4Example2" [(ngModel)]="date" name="date" class="form-control" />
          
           <!--BIO input -->
         </div>
         <div class="form-outline mb-4">
-            <label class="form-label" for="form4Example2">BIO</label>
-          <textarea id="form4Example2" class="form-control"></textarea>
+            <label class="form-label" for="form4Example2" >BIO</label>
+          <textarea id="form4Example2" class="form-control"[(ngModel)]="artist.bio" name="bio"></textarea>
           
         </div>
       
@@ -28,7 +28,7 @@
 
       
         <!-- Submit button -->
-        <button type="submit" (click)="submit()" class="btn btn-dark btn-block mb-4">Save</button>
+        <button type="submit"  class="btn btn-dark btn-block mb-4">Save</button>
       </form>
 
 </div>

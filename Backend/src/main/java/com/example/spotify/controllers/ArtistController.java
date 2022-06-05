@@ -19,31 +19,33 @@ public class ArtistController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/add/{email}")
-    public String addArtist(@RequestBody Artists artists,@RequestParam("key") String loginKey,@PathVariable("email") String email){
+    @PostMapping("/add")
+    public String addArtist(@RequestBody Artists artists){
+        //,@RequestParam("key") String loginKey,@PathVariable("email") String email
         String message="";
 
-        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())) {
+
             try {
                 artistService.addArtist(artists);
                 message = "Artist Added";
             } catch (Exception e) {
                 message = "Artist not added ,Server ERROR";
             }
-        }
+
 
         return message;
 
     }
 
-    @GetMapping("/get/{email}")
-    public List<Artists> getAllArtist(@RequestParam("key") String loginKey,@PathVariable("email") String email){
-        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())){
-            System.out.println("Login done");
+    @GetMapping("/get")
+    public List<Artists> getAllArtist(){
+//        @RequestParam("key") String loginKey,@PathVariable("email") String email
+//        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())){
+
             return artistService.getAllArtist();
 
-        }
-        return null;
+   //     }
+
 
     }
 

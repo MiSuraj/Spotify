@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AddArtistServiceService } from 'src/app/services/add-artist-service.service';
+
 
 @Component({
   selector: 'app-add-artist',
@@ -7,13 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddArtistComponent implements OnInit {
 
-  constructor() { }
+  constructor(private addArtistService:AddArtistServiceService) { }
 
   ngOnInit(): void {
   }
+  date:any;
+  artist=
+{
+  "name":"",
+  "dob":"",
+  "bio":""
+}
+
 
   submit(){
-    alert("submit clicked")
+    this.addArtistService.addArtist(this.artist).subscribe((data:any)=>{
+      alert("Artist Added!!")
+    },
+    (error)=>{
+      alert("Something went wrong!!");
+      console.log(error)
+    })
+   
+   
   }
 
 }
