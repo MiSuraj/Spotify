@@ -11,4 +11,5 @@ public interface ArtistService {
     public void addArtist(Artists artists);
 
     public List<Artists> getAllArtist();
+
 }

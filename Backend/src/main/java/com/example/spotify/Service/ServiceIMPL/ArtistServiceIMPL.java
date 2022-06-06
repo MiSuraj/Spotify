@@ -35,4 +35,5 @@ public class ArtistServiceIMPL implements ArtistService {
 
         return artist;
     }
+
 }

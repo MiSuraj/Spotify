@@ -4,7 +4,7 @@
         <!-- Name input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="form4Example1">Song Name</label>
-          <input type="text" id="form4Example1" class="form-control" placeholder="Enter Here"/>
+          <input type="text" id="form4Example1" [(ngModel)]="song.songName" name="songName" class="form-control" placeholder="Enter Here"/>
           
         </div>
       
@@ -23,17 +23,20 @@
         <label class="form-label" for="form4Example3">Artist</label>
         <div style="display:flex;">
            
-        <div>
-           <select class="selectpicker" name="" id="select-meal-type" multiple="multiple">
-               <option selected disabled>Ctrl+Click(MultiSelect)</option>
-               <option value="">None</option>
-               <option value="1">One</option>
-               <option value="2">two</option>
-               <option value="1">One</option>
-               <option value="2">two</option>
-               <option value="1">One</option>
-               <option value="2">two</option>
-           </select>
+        <div style="width:50%;">
+          <ng-multiselect-dropdown
+          [placeholder]="'Artist'"
+          [settings]="dropdownSettings"
+          [data]="artistList"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+        >
+
+
+        
+        
+        </ng-multiselect-dropdown>
          
             
         </div>
@@ -59,5 +62,9 @@
 
 </div>
 {{song|json}}
+
+
+
+
 
 

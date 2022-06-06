@@ -20,7 +20,7 @@ public class ArtistController {
     UserService userService;
 
     @PostMapping("/add")
-    public String addArtist(@RequestBody Artists artists){
+    public void addArtist(@RequestBody Artists artists){
         //,@RequestParam("key") String loginKey,@PathVariable("email") String email
         String message="";
 
@@ -33,7 +33,7 @@ public class ArtistController {
             }
 
 
-        return message;
+
 
     }
 

@@ -8,6 +8,7 @@ import { AddArtistServiceService } from 'src/app/services/add-artist-service.ser
   styleUrls: ['./add-artist.component.css']
 })
 export class AddArtistComponent implements OnInit {
+  
 
   constructor(private addArtistService:AddArtistServiceService) { }
 
@@ -24,7 +25,8 @@ export class AddArtistComponent implements OnInit {
 
   submit(){
     this.addArtistService.addArtist(this.artist).subscribe((data:any)=>{
-      alert("Artist Added!!")
+      alert("Artist Added!!");
+     window.location.href='/user/addSong';
     },
     (error)=>{
       alert("Something went wrong!!");

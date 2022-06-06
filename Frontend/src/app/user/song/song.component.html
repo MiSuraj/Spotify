@@ -6,24 +6,19 @@
           <th scope="col">Song</th>
           <th scope="col">Date Of Release</th>
           <th scope="col">Artist</th>
-          <th scope="col">Rate</th>
+          <th scope="col">Rating</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>rating</td>
+        <tr *ngFor="let c of songList">
+          <th scope="row"><img [src]="c.coverImgUrl" alt="Place image title" style="width:100px"></th>
+          <td>{{c.sName}}</td>
+          <td>{{c.releaseDate}}</td>
+          <td><div style="display:flex"><p *ngFor="let x of c.artist_songs" >{{x.artists.name}} ,</p></div></td>
+          <td><ngx-star-rating [id]="'rating'" [disabled]="true"></ngx-star-rating>{{c.rating}}</td>
+          
         </tr>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>rating</td>
-          </tr>
+
 
       </tbody>
   </table>

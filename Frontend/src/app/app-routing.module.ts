@@ -11,6 +11,10 @@ import { SongComponent } from './user/song/song.component';
 
 const routes: Routes = [
   {
+    path:"",
+    component:SongComponent
+  },
+  {
     path:"login",
     component:SignInComponent
   },

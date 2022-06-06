@@ -6,13 +6,11 @@ import com.example.spotify.dto.SongDTO;
 import com.example.spotify.models.Artist_Song;
 import com.example.spotify.models.Artists;
 import com.example.spotify.models.Songs;
+import com.example.spotify.repo.ArtistRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping("/song")
@@ -23,6 +21,8 @@ public class SongController {
     SongService songService;
     @Autowired
     UserService userService;
+    @Autowired
+    ArtistRepo artistRepo;
 
     @PostMapping("/add")
     public void addSong(@RequestBody SongDTO songDTO){
@@ -31,18 +31,21 @@ public class SongController {
 //        if(loginKey.equals(userService.getUserEmail(email).getLoginKey())) {
 
 
+
             try {
 
                 Songs songs=songDtoToSong(songDTO);
                 Set<Artist_Song> artist_songs=new HashSet<>();
                 for(Artists artist:songDTO.artists) {
-
+                    if(artist.getName()!=null){
+                        artist_songs.add(new Artist_Song(new Artists(artist.getName(),artist.getDob(),artist.getBio()), songs));
+                    }
                     //create obj of artist
                     //create object of artist_song
                     //artist_song.setArtist(artist)
                     //artist_song_setSong(song)
                     //now add set<artist_song>.add( artist_song)
-                    artist_songs.add(new Artist_Song(new Artists(artist.getName(),artist.getDob(),artist.getBio()), songs));
+
 
                 }
 
