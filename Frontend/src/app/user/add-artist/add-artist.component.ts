@@ -24,6 +24,7 @@ export class AddArtistComponent implements OnInit {
 
 
   submit(){
+     this.artist.dob=this.date;
     this.addArtistService.addArtist(this.artist).subscribe((data:any)=>{
       alert("Artist Added!!");
      window.location.href='/user/addSong';

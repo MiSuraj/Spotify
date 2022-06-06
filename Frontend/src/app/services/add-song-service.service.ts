@@ -11,6 +11,9 @@ export class AddSongServiceService {
 
 
      public addSong(data:any){
+       alert("calling")
+       console.log(data)
+     
        return this.http.post(`${baseUrl}/song/add`,data);
      }
      public getAllSong(){

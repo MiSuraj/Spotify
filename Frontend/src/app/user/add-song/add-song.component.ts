@@ -104,7 +104,7 @@ this.dropdownSettings = {
          alert("Song is Added!!");
 
        },
-       (error)=>{
+       (error:any)=>{
          alert("Something Went Wrong!!");
        }
 
